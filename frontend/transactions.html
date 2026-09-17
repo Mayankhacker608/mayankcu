@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transactions | Northstar Banking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/transactions.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="bg-slate-100">
+    <div class="flex min-h-screen">
+      <aside class="hidden w-72 flex-col border-r border-slate-200 bg-slate-950 text-slate-200 lg:flex">
+        <div class="flex items-center gap-3 border-b border-slate-800 px-6 py-5">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-700 text-lg font-bold text-white">N</div>
+          <div>
+            <p class="font-bold text-white">Northstar</p>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400">Banking</p>
+          </div>
+        </div>
+        <nav class="flex-1 space-y-2 px-4 py-6">
+          <a href="dashboard.html" class="sidebar-link flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium"><span>Dashboard</span></a>
+          <a href="customers.html" class="sidebar-link flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium"><span>Customers</span></a>
+          <a href="accounts.html" class="sidebar-link flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium"><span>Accounts</span></a>
+          <a href="transactions.html" class="sidebar-link active flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium"><span>Transactions</span></a>
+          <a href="payments.html" class="sidebar-link flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium"><span>Payments</span></a>
+          <a href="reports.html" class="sidebar-link flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium"><span>Reports</span></a>
+          <a href="profile.html" class="sidebar-link flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium"><span>Profile</span></a>
+          <button id="logout-button" class="mt-6 w-full rounded-xl border border-slate-700 px-3 py-3 text-left text-sm font-medium text-slate-200 hover:bg-slate-800">Logout</button>
+        </nav>
+      </aside>
+      <div class="flex-1">
+        <header class="border-b border-slate-200 bg-white/90 backdrop-blur-sm">
+          <div class="flex items-center justify-between px-6 py-4">
+            <div class="relative">
+              <input id="global-search" type="search" placeholder="Search transactions..." class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm md:w-80" />
+              <div id="search-results" class="search-panel hidden overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"><div id="search-results-list"></div></div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600" id="today-date"></div>
+              <div class="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2">
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 font-semibold text-sky-700" id="user-name-initials">U</div>
+                <div class="hidden text-left sm:block"><p class="text-sm font-medium text-slate-800" id="user-name">User</p><p class="text-[10px] uppercase tracking-[0.2em] text-slate-500" id="user-role">Role</p></div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="p-6">
+          <div class="mb-6 flex items-center justify-between">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Operations</p>
+              <h1 class="mt-2 text-3xl font-black text-slate-900">Transactions</h1>
+            </div>
+            <button id="new-transaction-button" class="rounded-xl bg-brand-700 px-4 py-3 font-medium text-white shadow-lg shadow-brand-700/20">New transaction</button>
+          </div>
+          <div class="mb-6 rounded-3xl border border-slate-200 bg-white p-4 shadow-lg shadow-slate-200/40">
+            <div class="grid gap-4 md:grid-cols-4">
+              <select id="type-filter" class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm"><option value="">All types</option><option value="Credit">Credit</option><option value="Debit">Debit</option></select>
+              <select id="status-filter" class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm"><option value="">All statuses</option><option value="Completed">Completed</option><option value="Pending">Pending</option><option value="Failed">Failed</option></select>
+              <input id="search-input" type="search" placeholder="Search by ID or description" class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm" />
+              <button id="apply-filters" class="rounded-xl bg-slate-900 px-4 py-3 font-medium text-white">Apply</button>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-slate-200 bg-white p-4 shadow-lg shadow-slate-200/40">
+            <div class="table-scroll"><table class="min-w-full text-left text-sm"><thead class="text-slate-500"><tr><th class="pb-3 font-medium">ID</th><th class="pb-3 font-medium">Account</th><th class="pb-3 font-medium">Type</th><th class="pb-3 font-medium">Amount</th><th class="pb-3 font-medium">Status</th><th class="pb-3 font-medium">Action</th></tr></thead><tbody id="transactions-table-body"></tbody></table></div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <div id="transaction-modal" class="fixed inset-0 hidden items-center justify-center bg-slate-900/40 p-4">
+      <div class="w-full max-w-xl rounded-3xl bg-white p-6 shadow-2xl">
+        <div class="mb-5 flex items-center justify-between"><h2 class="text-2xl font-black text-slate-900">New transaction</h2><button id="close-modal" class="text-2xl text-slate-500">×</button></div>
+        <form id="transaction-form" class="space-y-4">
+          <div><label class="mb-2 block text-sm font-medium text-slate-700">Account</label><select id="transaction-account" name="account" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm" required></select></div>
+          <div class="grid gap-4 md:grid-cols-2"><div><label class="mb-2 block text-sm font-medium text-slate-700">Type</label><select name="type" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm" required><option value="Credit">Credit</option><option value="Debit">Debit</option></select></div><div><label class="mb-2 block text-sm font-medium text-slate-700">Amount</label><input name="amount" type="number" min="0" step="0.01" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm" required /></div></div>
+          <div><label class="mb-2 block text-sm font-medium text-slate-700">Description</label><textarea name="description" rows="3" class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm"></textarea></div>
+          <div class="flex justify-end gap-3"><button type="button" id="cancel-transaction" class="rounded-xl border border-slate-300 px-4 py-2.5 font-medium text-slate-700">Cancel</button><button type="submit" class="rounded-xl bg-brand-700 px-4 py-2.5 font-medium text-white">Save transaction</button></div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

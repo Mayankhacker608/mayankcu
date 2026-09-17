@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Northstar Banking | Account Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#2563eb',
+                700: '#1d4ed8',
+                900: '#0f172a',
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <header class="border-b border-slate-200 bg-white/90 backdrop-blur-sm sticky top-0 z-50">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <div class="flex items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-700 text-lg font-bold text-white">N</div>
+          <div>
+            <p class="text-lg font-bold">Northstar</p>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500">Banking</p>
+          </div>
+        </div>
+        <div class="hidden items-center gap-8 md:flex">
+          <a href="#features" class="text-sm text-slate-600 hover:text-slate-900">Features</a>
+          <a href="#overview" class="text-sm text-slate-600 hover:text-slate-900">Overview</a>
+          <a href="#security" class="text-sm text-slate-600 hover:text-slate-900">Security</a>
+          <a href="#analytics" class="text-sm text-slate-600 hover:text-slate-900">Analytics</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="login.html" class="rounded-full border border-slate-200 px-5 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Login</a>
+          <a href="register.html" class="rounded-full bg-brand-700 px-5 py-2 text-sm font-medium text-white shadow-lg shadow-brand-700/20 hover:bg-brand-900">Get Started</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="mx-auto grid max-w-7xl items-center gap-10 px-6 py-16 lg:grid-cols-2 lg:py-24">
+        <div class="fade-up">
+          <span class="inline-flex rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-brand-700">Modern financial operations</span>
+          <h1 class="mt-6 text-4xl font-black leading-tight text-slate-900 md:text-6xl">Professional account management for growth-focused teams.</h1>
+          <p class="mt-6 max-w-xl text-lg text-slate-600">Route customer onboarding, account operations, payment tracking, and transaction analysis through one enterprise-ready platform.</p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="register.html" class="rounded-full bg-brand-700 px-6 py-3 font-medium text-white shadow-lg shadow-brand-700/20 hover:bg-brand-900">Get Started</a>
+            <a href="login.html" class="rounded-full border border-slate-200 bg-white px-6 py-3 font-medium text-slate-700 hover:bg-slate-100">Login</a>
+          </div>
+          <div class="mt-10 flex flex-wrap gap-8 text-sm text-slate-600">
+            <div><span class="block text-2xl font-black text-slate-900">12k+</span> Active clients</div>
+            <div><span class="block text-2xl font-black text-slate-900">99.9%</span> Service uptime</div>
+            <div><span class="block text-2xl font-black text-slate-900">24/7</span> Monitoring</div>
+          </div>
+        </div>
+        <div class="fade-up rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-300/30">
+          <div class="rounded-2xl bg-slate-950 p-5 text-white">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Portfolio overview</p>
+                <h2 class="mt-2 text-3xl font-black">$8.4M</h2>
+              </div>
+              <div class="rounded-xl bg-emerald-500/20 px-3 py-2 text-sm font-medium text-emerald-400">+12.4%</div>
+            </div>
+            <div class="mt-8 grid grid-cols-2 gap-4 text-sm">
+              <div class="rounded-xl bg-white/5 p-4">
+                <p class="text-slate-300">Customers</p>
+                <p class="mt-2 text-2xl font-bold">2,840</p>
+              </div>
+              <div class="rounded-xl bg-white/5 p-4">
+                <p class="text-slate-300">Balances</p>
+                <p class="mt-2 text-2xl font-bold">$5.4M</p>
+              </div>
+              <div class="rounded-xl bg-white/5 p-4">
+                <p class="text-slate-300">Payments</p>
+                <p class="mt-2 text-2xl font-bold">184</p>
+              </div>
+              <div class="rounded-xl bg-white/5 p-4">
+                <p class="text-slate-300">Revenue</p>
+                <p class="mt-2 text-2xl font-bold">$382K</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="mx-auto max-w-7xl px-6 py-20">
+        <div class="text-center">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Platform features</p>
+          <h2 class="mt-4 text-3xl font-black text-slate-900 md:text-4xl">Everything needed to run a modern financial operation.</h2>
+        </div>
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/50">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-100 text-sky-700">01</div>
+            <h3 class="text-xl font-bold">Customer management</h3>
+            <p class="mt-3 text-slate-600">Track customer lifecycle, relationship history, account details, and support interactions from one dashboard.</p>
+          </div>
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/50">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">02</div>
+            <h3 class="text-xl font-bold">Account operations</h3>
+            <p class="mt-3 text-slate-600">Manage deposit, withdrawal, transfer, and service automation with secure balance controls.</p>
+          </div>
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/50">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-100 text-violet-700">03</div>
+            <h3 class="text-xl font-bold">Analytics and reporting</h3>
+            <p class="mt-3 text-slate-600">Use smart dashboards and exportable financial summaries to monitor performance and risk.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="overview" class="bg-slate-900 py-20 text-white">
+        <div class="mx-auto max-w-7xl px-6">
+          <div class="grid gap-8 lg:grid-cols-2">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">Account management overview</p>
+              <h2 class="mt-4 text-3xl font-black md:text-4xl">A high-trust operating layer for financial workflows.</h2>
+            </div>
+            <div class="space-y-4 text-slate-300">
+              <p>Northstar helps teams streamline compliance, reduce operational friction, and keep account activity visible from account opening through reconciliation.</p>
+              <p>From onboarding to closure, financial decisions are tracked with role-based controls and clear action logs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="analytics" class="mx-auto max-w-7xl px-6 py-20">
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/50">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Transaction management</p>
+            <h3 class="mt-3 text-2xl font-bold">Track movement in real time</h3>
+            <p class="mt-4 text-slate-600">Create deposits, withdrawals, and account updates while preserving financial integrity with server-side balance validation.</p>
+          </div>
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/50">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Payment management</p>
+            <h3 class="mt-3 text-2xl font-bold">Keep collections moving</h3>
+            <p class="mt-4 text-slate-600">Monitor payment status, approvals, and reference data to reduce delay and keep customer operations in sync.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="security" class="bg-slate-100 py-20">
+        <div class="mx-auto max-w-7xl px-6">
+          <div class="text-center">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Security</p>
+            <h2 class="mt-4 text-3xl font-black text-slate-900 md:text-4xl">Enterprise-ready controls with safe-by-default access.</h2>
+          </div>
+          <div class="mt-10 grid gap-6 md:grid-cols-3">
+            <div class="rounded-3xl bg-white p-6 shadow-lg shadow-slate-200/50">
+              <h3 class="text-lg font-bold">JWT authentication</h3>
+              <p class="mt-3 text-slate-600">User sessions are protected with token-based routing and role-aware middleware.</p>
+            </div>
+            <div class="rounded-3xl bg-white p-6 shadow-lg shadow-slate-200/50">
+              <h3 class="text-lg font-bold">Password security</h3>
+              <p class="mt-3 text-slate-600">Passwords are hashed before storage, preventing direct exposure in the database.</p>
+            </div>
+            <div class="rounded-3xl bg-white p-6 shadow-lg shadow-slate-200/50">
+              <h3 class="text-lg font-bold">Audit transparency</h3>
+              <p class="mt-3 text-slate-600">Activities and notifications help teams keep record of all important operational changes.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl px-6 py-20">
+        <div class="rounded-3xl bg-gradient-to-r from-brand-700 to-sky-600 px-8 py-12 text-white shadow-2xl shadow-brand-700/20">
+          <div class="flex flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sky-100">Ready to scale</p>
+              <h2 class="mt-2 text-3xl font-black">Launch your account operations platform in minutes.</h2>
+            </div>
+            <div class="flex gap-4">
+              <a href="register.html" class="rounded-full bg-white px-6 py-3 font-medium text-brand-700 hover:bg-slate-100">Get Started</a>
+              <a href="login.html" class="rounded-full border border-white/50 px-6 py-3 font-medium text-white hover:bg-white/10">Login</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-slate-600 md:flex-row md:items-center md:justify-between">
+        <p>© 2026 Northstar Banking. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#features">Features</a>
+          <a href="#security">Security</a>
+          <a href="login.html">Login</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

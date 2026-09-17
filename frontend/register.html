@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | Northstar Banking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="bg-slate-100" data-page="register">
+    <div class="flex min-h-screen items-center justify-center p-6">
+      <div class="auth-card w-full max-w-2xl rounded-3xl border border-slate-200 bg-white p-8 shadow-2xl shadow-slate-200/60">
+        <div class="mb-8 text-center">
+          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-700 text-2xl font-black text-white">N</div>
+          <h1 class="mt-5 text-3xl font-black text-slate-900">Create your account</h1>
+          <p class="mt-2 text-sm text-slate-600">Set up your banking workspace and administrative profile</p>
+        </div>
+
+        <form id="register-form" class="auth-form grid gap-5 md:grid-cols-2">
+          <div class="auth-field md:col-span-2">
+            <label for="fullName" class="mb-2 block text-sm font-medium text-slate-700">Full name</label>
+            <input id="fullName" name="fullName" type="text" required class="auth-input w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm" placeholder="Jane Doe" />
+          </div>
+
+          <div class="auth-field">
+            <label for="email" class="mb-2 block text-sm font-medium text-slate-700">Email</label>
+            <input id="email" name="email" type="email" required class="auth-input w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm" placeholder="name@company.com" />
+          </div>
+
+          <div class="auth-field">
+            <label for="phone" class="mb-2 block text-sm font-medium text-slate-700">Phone</label>
+            <input id="phone" name="phone" type="tel" required class="auth-input w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm" placeholder="+1 555 123 4567" />
+          </div>
+
+          <div class="auth-field">
+            <label for="password" class="mb-2 block text-sm font-medium text-slate-700">Password</label>
+            <input id="password" name="password" type="password" required class="auth-input w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm" placeholder="Minimum 6 chars" />
+          </div>
+
+          <div class="auth-field">
+            <label for="confirm-password" class="mb-2 block text-sm font-medium text-slate-700">Confirm password</label>
+            <input id="confirm-password" name="confirmPassword" type="password" required class="auth-input w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm" placeholder="Repeat password" />
+          </div>
+
+          <div class="auth-field md:col-span-2">
+            <label for="role" class="mb-2 block text-sm font-medium text-slate-700">Role</label>
+            <select id="role" name="role" class="auth-input w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm">
+              <option value="ADMIN">ADMIN</option>
+              <option value="ACCOUNT_MANAGER" selected>ACCOUNT_MANAGER</option>
+            </select>
+          </div>
+
+          <div id="auth-message" class="md:col-span-2 hidden rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-600"></div>
+
+          <button type="submit" class="auth-submit md:col-span-2 w-full rounded-xl px-4 py-3 font-medium text-white">Create account</button>
+        </form>
+
+        <p class="mt-7 text-center text-sm text-slate-600">
+          Already have an account?
+          <a href="login.html" class="font-semibold text-brand-700">Login</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
